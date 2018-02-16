@@ -1,0 +1,48 @@
+body {
+    margin-left: 0;
+    background-image: url('/asteroid.jpg');
+    width: 100%;
+}
+
+
+div img {
+    padding-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    border-bottom-width: 0;
+    margin-bottom: 0;
+    border: 0;
+}
+
+h1 {
+    margin: 1em;
+}
+
+input form {
+    width: auto;
+}
+
+/*.ui.menu {*/
+/*    background-color: rgba(72, 98, 173, 1);*/
+/*}*/
+
+body {
+    color: white;
+}
+
+.ui.avatar.image {
+    padding: 0;
+    width: auto;
+    height: auto;
+    border: 0;
+}
+
+#delete {
+    display: inline;
+}
+
+two fields {
+    width: 50px;
+}
+

@@ -1,0 +1,27 @@
+<% include partials/header %>
+
+<div class="ui input form inverted segment">
+    <div class='ui huge header'>Search NEO's!!</div>
+    <form action='/show' method='GET'>
+        <div class="ui inverted">
+            <div class="two fields">
+                <div class="field">
+                    <label>Start Date</label>
+                    <input placeholder="YYYY-MM-DD" type="text" name='startDate'>
+                </div>
+                <div class="field">
+                    <label>End Date</label>
+                    <input placeholder="YYYY-MM-DD" type="text" name='endDate'>
+                </div>
+            </div>
+            <input type='submit'>
+            <!--<div class="ui submit button">Submit</div>-->
+        </div>
+    </form>
+        
+</div>
+
+
+
+
+<% include partials/footer %>
