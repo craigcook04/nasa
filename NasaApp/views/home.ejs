@@ -1,9 +1,9 @@
 <% include partials/header %>
 
-<div class="ui input form inverted segment">
+<div class="ui inverted segment" id='search'>
     <div class='ui huge header'>Search NEO's!!</div>
     <form action='/show' method='GET'>
-        <div class="ui inverted">
+        <div class="ui inverted form">
             <div class="two fields">
                 <div class="field">
                     <label>Start Date</label>
@@ -14,11 +14,9 @@
                     <input placeholder="YYYY-MM-DD" type="text" name='endDate'>
                 </div>
             </div>
-            <input type='submit'>
-            <!--<div class="ui submit button">Submit</div>-->
+            <input type='submit' class='ui inverted black submit button'>
         </div>
     </form>
-        
 </div>
 
 
