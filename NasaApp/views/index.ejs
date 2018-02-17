@@ -1,0 +1,19 @@
+<% include partials/header %>
+
+<div class="ui inverted segment">
+    <div class="ui inverted">
+        <div class="header" id='header'>
+            <%= body.name %>
+        </div>
+        <div class="content">
+            <h3>Estimated Diameter</h3>
+            <li><%= body['estimated_diameter']['meters'].estimated_diameter_max %>m</li>
+            <h3>Number of times it will pass Earth</h3>
+            <li><%= body['close_approach_data'].length %> times</li>
+            <h3>Other</h3>
+            <li><a href='<%= body.nasa_jpl_url %>'>Click here for more information</a></li>
+        </div>
+    </div>
+</div>
+
+<% include partials/footer %>

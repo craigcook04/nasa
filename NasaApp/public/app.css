@@ -40,6 +40,29 @@ two fields {
     width: 600px;
     height: 200px;
     margin: 100px auto;
-    background-color: rgba(0, 0, 0, 0.6)
+    background-color: rgba(0, 0, 0, 0.6);
     
+}
+
+#accordion {
+    width: 300px;
+    margin: 1em;
+    border: solid 1px white;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+#header {
+    font-size: 2em;
+    text-align: center;
+}
+
+
+#names {
+    text-decoration: underline;
+}
+
+.inverted.title {
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 70%;
 }

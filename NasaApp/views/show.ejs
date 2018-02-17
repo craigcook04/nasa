@@ -1,17 +1,16 @@
 <% include partials/header %>
 
-<h1>This is the Show Page!!</h1>
+
+<div class='ui inverted title'>
+    <h1>Asteroids that have passed Earth on <%= startDate %>:</h1>
+</div>
 
 <% for(var i = 0; i < body['near_earth_objects'][startDate].length; i++) { %>
-    
-    <li><%= body['near_earth_objects'][startDate][i].name %></li>
-    
+    <div class='ui inverted segment' id='accordion'>
+        <a id='names' href='/id/<%= body['near_earth_objects'][startDate][i].neo_reference_id %>'><%= body['near_earth_objects'][startDate][i].name %></a>
+    </div>
+
 <% } %>
-
-<p><%= body['near_earth_objects'][startDate].length %></p>
-
-
-
 
 
 <% include partials/footer %>

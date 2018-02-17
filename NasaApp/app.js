@@ -38,11 +38,28 @@ app.get('/show', function(req, res) {
                 endDate: endDate
             });
         } else {
-            res.redirect('home');
+            res.redirect('/home');
         }
     });
     
 });
+
+app.get('/id/:neoid', function(req, res) {
+   var id = req.params.neoid;
+   request('https://api.nasa.gov/neo/rest/v1/neo/' + id + '?api_key=WgUOHmvbWyaPR8rGmCwD6Kii3u732VutWXa75GWb', function(error, response, body) {
+        if(!error && response.statusCode == 200) { // 200 OK status code
+            var parsedData = JSON.parse(body);
+            res.render('index', {
+                body: parsedData,
+                neoid: id
+            });
+        } else {
+            res.redirect('/show');
+        }
+    });
+   
+});
+
 
 // INDEX ROUTE
 // app.get('/players', function(req, res) {
@@ -86,6 +103,11 @@ app.get('/show', function(req, res) {
 // UPDATE ROUTE
 
 // DESTROY ROUTE
+
+
+////////////////////////////////////////////////////////
+////////////////        METHODS        /////////////////
+////////////////////////////////////////////////////////
 
 
 
