@@ -11,6 +11,7 @@ app                 = express();
 // APP CONFIG
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(express.static('build'));
 app.use(bodyParser.urlencoded({extended: true}));
 
 
@@ -29,13 +30,26 @@ app.get('/', function(req, res) {
 app.get('/show', function(req, res) {
     var startDate = req.query.startDate;
     var endDate = req.query.endDate;
-    request('https://api.nasa.gov/neo/rest/v1/feed?start_date=' + startDate + '&end_date=' + endDate + '&api_key=WgUOHmvbWyaPR8rGmCwD6Kii3u732VutWXa75GWb', function(error, response, body) {
+    
+    // Following substring() contains the first two elements of startDate-->
+    var startMonth = startDate.substring(0, 2);
+    var startDay = startDate.substring(3, 5);
+    var startYear = startDate.substring(6);
+    
+    var endMonth = endDate.substring(0, 2);
+    var endDay = endDate.substring(3, 5);
+    var endYear = endDate.substring(6);
+    
+    var convertedStartDate = startYear + '-' + startMonth + '-' + startDay;
+    var convertedEndDate = endYear + '-' + endMonth + '-' + endDay;
+    
+    request('https://api.nasa.gov/neo/rest/v1/feed?start_date=' + convertedStartDate + '&end_date=' + convertedEndDate + '&api_key=WgUOHmvbWyaPR8rGmCwD6Kii3u732VutWXa75GWb', function(error, response, body) {
         if(!error && response.statusCode == 200) { // 200 OK status code
             var parsedData = JSON.parse(body);
             res.render('show', {
                 body: parsedData,
-                startDate: startDate,
-                endDate: endDate
+                startDate: convertedStartDate,
+                endDate: convertedEndDate
             });
         } else {
             res.redirect('/home');
